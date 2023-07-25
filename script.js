@@ -1,5 +1,5 @@
 // Setting up global variables
-var APIKey = "3a4b7a3f4ad0ec3d6b66fc85ea73de6e";
+const APIKey = "3a4b7a3f4ad0ec3d6b66fc85ea73de6e";
 var cityArr;  // Make an empty array to hold the city names
 const mainDiv = document.getElementById("apiDiv");
 const prevCitiesDiv = document.getElementById("previousCitiesDiv");
@@ -62,6 +62,7 @@ function citySearch(city = "") {
     fetch(req)
         .then((response) => {
             if (!response.ok) {
+                alert("An error. Oh my.");
                 throw new Error(`HTTP error, status = ${response.status}`);
             }
             return response.json();
@@ -81,8 +82,6 @@ function citySearch(city = "") {
             // temp -> data.list.0.main.temp  (need to convert from K to F)
             // hum -> data.list.0.main.humidity
             // wind -> data.list.0.wind.speed
-
-
 
             // convert dt to "human" date
             let weatherData = data["list"]["0"]; // shortcut helper
@@ -104,6 +103,8 @@ function citySearch(city = "") {
             html += "<p>Wind: " + weatherData.wind.speed + " MPH</p>";
             html += "<p>Humidity: " + weatherData.main.humidity + " %</p>";
 
+            mainDiv.innerHTML = html;
+
 
             // 5 DAY FORECAST
             // Iterate listnumber forward by 8s to get these
@@ -111,12 +112,14 @@ function citySearch(city = "") {
             // Date, icon, temp, wind, humidity
             let wind, humidity;
             for (let i = 1; i <= 5; i++) {
-                let listIndex = (i * 8).toString();
+                let listIndex = ((i * 8)-1).toString();
                 weatherData = data['list'][listIndex];
+                console.log(i);
+                console.log(weatherData);
                 timestamp = parseInt(weatherData.dt);
                 dateObj = new Date(timestamp * 1000);
                 dateString = dateObj.getMonth() + 1 + "/" + dateObj.getDate() + "/" + dateObj.getFullYear();
-                iconcode = weatherData['weather'][listIndex]['icon'];
+                iconcode = weatherData['weather']["0"]['icon'];
                 iconurl = "https://openweathermap.org/img/w/" + iconcode + ".png";
                 tempF = (1.8 * (parseFloat(weatherData.main.temp) - 273.15)) + 32;
                 tempF = tempF.toFixed(2);
@@ -132,15 +135,9 @@ function citySearch(city = "") {
 
                 let divId = "forecastDiv" + (i.toString());
 
-                document.getElementById("divId").innerHTML = html;
+                document.getElementById(divId).innerHTML = html;
 
             }
-
-
-
-
-            mainDiv.innerHTML = html;
-
 
         })
         .catch(console.error);
@@ -158,7 +155,7 @@ function displayCities() {
     }
 
     // push html string in to correct div on page
-    document.getElementById("previousCitiesDiv").innerHTML = html;
+    prevCitiesDiv.innerHTML = html;
 }
 
 startUp();

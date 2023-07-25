@@ -1,26 +1,63 @@
-div {
-    border: 1px solid black;
-    padding: 1em;
-}
-
-#leftDiv {
-    width: 30%;
-    float: left;
-}
-
-#apiDiv {
-    width: 60%;
-    float: right;
-}
-
 .forecastDiv {
-
-    float: right;
-    width: 10%;
-    height: 15rem;
-    justify-content: space-around;
-    flex-direction: row;
+    height: 20rem;
     border-width: 8px;
     border-color: white;
     background-color: darkslateblue;
+    margin-right: 20px;
+    padding: 10px;
+    color: white
+}
+
+#gridContainer {
+    display: grid;
+    grid-template-columns: 200px auto;
+}
+
+#forecastDivContainer {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+   
+}
+
+button {
+
+    width: 100%;
+    margin-top: 12px;
+}
+
+input {
+
+    width: 100%;
+}
+
+#searchButton {
+
+    background-color: rgb(52, 52, 146);
+    color: white;
+    box-shadow: 2px;
+}
+
+.gridItem2 {
+
+    padding-left: 20px;
+}
+
+#apiDiv {
+
+    border: 1px solid black;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+    padding: 20px;
+}
+
+#bannerDiv {
+    border: 1px solid black;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+    padding: 20px;
+    background-color: rgb(52, 52, 146);
+    color: white;
+
 }
