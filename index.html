@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather API</title>
   <link rel="stylesheet" href="style.css">
+  
 </head>
+
 <body>
 
   <div id="bannerDiv">
@@ -17,27 +20,28 @@
     <div class="gridItem">
       <h2>Search for City:</h2>
       <input type="text" id="cityInput">
-      <button onclick ="citySearch()" id="searchButton">Search</button>
+      <button onclick="citySearch()" id="searchButton">Search</button>
       <div id="previousCitiesDiv">List of previous city searches</div>
     </div>
 
     <div class="gridItem2">
 
-      <div id="apiDiv">Main API results display</div>
+      <div id="apiDiv">Results</div>
 
       <div id="forecastDivContainer">
-        <div class= "forecastDiv" id="forecastDiv1"></div>
-        <div class= "forecastDiv" id="forecastDiv2"></div>
-        <div class= "forecastDiv" id="forecastDiv3"></div>
-        <div class= "forecastDiv" id="forecastDiv4"></div>
-        <div class= "forecastDiv" id="forecastDiv5"></div>
+        <div class="forecastDiv" id="forecastDiv1"></div>
+        <div class="forecastDiv" id="forecastDiv2"></div>
+        <div class="forecastDiv" id="forecastDiv3"></div>
+        <div class="forecastDiv" id="forecastDiv4"></div>
+        <div class="forecastDiv" id="forecastDiv5"></div>
       </div>
 
     </div>
 
   </div>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 
 </body>
+
 </html>
