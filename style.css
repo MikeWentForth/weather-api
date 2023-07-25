@@ -12,3 +12,15 @@ div {
     width: 60%;
     float: right;
 }
+
+.forecastDiv {
+
+    float: right;
+    width: 10%;
+    height: 15rem;
+    justify-content: space-around;
+    flex-direction: row;
+    border-width: 8px;
+    border-color: white;
+    background-color: darkslateblue;
+}
