@@ -2,7 +2,7 @@
 
 ## Introduction ##
 
-This website gives the user an option to type in a city, which displays a 5 day forecast including temperature, wind, & humidity.  
+This website lets the user type in a city, which displays a 5 day weather forecast including temperature, wind, & humidity. The app will also save any previously typed entries for quick and easy access.  
 
 ## Technologies used ##
 
